@@ -1,4 +1,4 @@
-package com.anas.easy;
+package com.anas.leetcode.easy;
 public class RomanToInteger {
     public int romanToInt(String s) {
         int num = 0;
