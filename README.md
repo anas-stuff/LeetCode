@@ -7,6 +7,6 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/anas-elgarhy/leetcode/badge)](https://www.codefactor.io/repository/github/anas-elgarhy/leetcode)
 
 ## Problems
-- [Easy](./src/main/java/com/anas/leetcode/easy)
-   - [Roman to Integer](./src/main/java/com/anas/leetcode/easy/RomanToInteger.java), [Problem in leetcode](https://leetcode.com/problems/roman-to-integer/)
-   - [Longest Common Prefix](./src/main/java/com/anas/leetcode/easy/LongestCommonPrefix.java), [Problem in leetcode](https://leetcode.com/problems/longest-common-prefix/)
+- [Easy](./easy)
+   - [Roman to Integer](./easy/roman_to_integer/java/src/main/java/com/anas/leetcode/easy/RomanToInteger.java), [Problem in leetcode](https://leetcode.com/problems/roman-to-integer/)
+   - [Longest Common Prefix](./easy/longest_common_prefix/java/src/main/java/com/anas/leetcode/easy/LongestCommonPrefix.java), [Problem in leetcode](https://leetcode.com/problems/longest-common-prefix/)
