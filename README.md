@@ -14,3 +14,5 @@
       - [Java ☕](./easy/longest_common_prefix/java/src/main/java/com/anas/leetcode/easy/LongestCommonPrefix.java)
    - [Valid Parentheses](https://leetcode.com/problems/valid-parentheses)
       - [Rust 🦀](./easy/valid_parentheses/rust/valid_parentheses_checker/src/lib.rs)
+   - [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists)
+      - [Rust 🦀 recursion](./easy/merge_two_sorted_lists/rust/merge_two_sorted_lists_recursion/src/lib.rs)
