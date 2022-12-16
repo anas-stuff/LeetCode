@@ -1,0 +1,6 @@
+markdownify
+beautifulsoup4
+pytermgui
+lxml
+selenium
+requests
