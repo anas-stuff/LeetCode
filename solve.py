@@ -63,7 +63,10 @@ if not os.path.exists(problem_path):
 discription = main_div.find("div", {"class": "_1l1MA"})
 
 # Show the tui for confirm the data and choose the language to solve the problem
-data = tui.confirm_data(Data(title, level, problem_path))
+data = Data(title, level, problem_path)
+tui.confirm_data(data)
+print(data)
+exit(0)
 
 # Download the images if there are any
 for img in discription.find_all("img"):

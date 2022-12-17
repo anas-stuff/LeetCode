@@ -61,7 +61,21 @@ def get_the_url(base_url: str) -> str:
         wm.run()
     return problem_url
 
-def confirm_data(data: Data) -> Data:
+def parse_data(manager: ptg.WindowManager, window: ptg.Window, data: Data) -> None:
+    """ Parse the data and choose the language to solve the problem """
+    for widget in window:
+        if isinstance(widget, ptg.InputField):
+            if widget.prompt == "Title: ":
+                data.title = widget.value
+            elif widget.prompt == "Level: ":
+                data.level = widget.value
+            elif widget.prompt == "Base path:":
+                data.problem_path = widget.value
+            elif widget.prompt == "Solve with:":
+                data.solve_with = [str(s).strip() for s in widget.value.split(",")]
+    manager.stop()
+
+def confirm_data(data: Data) -> None:
     """ Show the tui using the pytermgui for confirm the data and choose the language to solve the problem """
     with ptg.WindowManager() as wm:
         wm.layout.add_slot("Body")
@@ -71,8 +85,9 @@ def confirm_data(data: Data) -> Data:
                 ptg.InputField(data.title, prompt="Title: "),
                 ptg.InputField(data.level, prompt="Level: "),
                 ptg.InputField(data.problem_path, prompt="Base path:"),
+                ptg.InputField("rust,", prompt="Solve with:"),
                 "",
-                ["Confirm", lambda *_: wm.stop()],
+                ["Confirm", lambda *_: parse_data(wm, window, data)],
                 width=60,
                 box="DOUBLE",
             )
@@ -81,6 +96,3 @@ def confirm_data(data: Data) -> Data:
         )
         wm.add(window)
         wm.run()
-    
-    data.solve_with = ["python", "java", "c++", "c", "go"]
-    return data
