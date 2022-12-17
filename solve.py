@@ -65,8 +65,6 @@ discription = main_div.find("div", {"class": "_1l1MA"})
 # Show the tui for confirm the data and choose the language to solve the problem
 data = Data(title, level, problem_path)
 tui.confirm_data(data)
-print(data)
-exit(0)
 
 # Download the images if there are any
 for img in discription.find_all("img"):
@@ -102,23 +100,27 @@ if not os.path.exists(os.path.join(data.problem_path, "NOTE.md")):
         f.write("## There is no note for this problem yet ¯⁠⁠⁠\(⁠ツ⁠)⁠⁠/⁠¯")
 
 # Create the solution project for each language
-for lang in data.solve_with:
-    lang_path = os.path.join(data.problem_path, lang)
-    if not os.path.exists(lang_path):
-        os.mkdir(lang_path)
-    match lang:
-        case "python" | "py":
-            create_python_project(lang_path)
-        case "java":
-            create_java_project(lang_path)
-        case "c++" | "cpp":
-            create_cpp_project(lang_path)
-        case "c":
-            create_c_project(lang_path)
-        case "rust":
-            create_rust_project(lang_path)
-        case "go":
-            create_go_project(lang_path)
-        case _: # If other language, do nothing
-            pass
+if data.solve_with:
+    print("Creating the solution projects...")
+    for lang in data.solve_with:
+        lang_path = os.path.join(data.problem_path, lang)
+        if not os.path.exists(lang_path):
+            os.mkdir(lang_path)
+        match lang:
+            case "python" | "py":
+                create_python_project(lang_path)
+            case "java":
+                create_java_project(lang_path)
+            case "c++" | "cpp":
+                create_cpp_project(lang_path)
+            case "c":
+                create_c_project(lang_path)
+            case "rust":
+                create_rust_project(lang_path)
+            case "go":
+                create_go_project(lang_path)
+            case _: # If other language, do nothing
+                pass
+else:
+    print("No language to solve the problem with, skipping the solution projects creation...")
 

@@ -72,7 +72,11 @@ def parse_data(manager: ptg.WindowManager, window: ptg.Window, data: Data) -> No
             elif widget.prompt == "Base path:":
                 data.problem_path = widget.value
             elif widget.prompt == "Solve with:":
-                data.solve_with = [str(s).strip() for s in widget.value.split(",")]
+                # Remove the last comma if exists
+                value = str(widget.value).strip()
+                if value.endswith(","):
+                    value = value[:-1]
+                data.solve_with = [s.strip() for s in value.split(",")]
     manager.stop()
 
 def confirm_data(data: Data) -> None:
