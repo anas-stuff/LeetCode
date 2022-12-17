@@ -8,6 +8,6 @@ class ITextUserInterface(zope.interface.Interface):
     def get_the_url(self, base_url: str) -> str:
         """Show the tui for enter the URL of the problem"""
         pass
-    def confirm_data(self, data: Data) -> Data:
+    def confirm_data(self, data: Data) -> None:
         """Show the tui for confirm the data and choose the language to solve the problem"""
         pass
