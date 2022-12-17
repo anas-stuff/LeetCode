@@ -1,6 +1,5 @@
 import os # For getting the current working directory and making directories
 import sys # For getting command line arguments
-from enum import Enum # For the enum class
 from selenium import webdriver # For getting the HTML of the problem
 import requests # For downloading images
 from bs4 import BeautifulSoup # For parsing HTML
