@@ -28,14 +28,12 @@ def create_c_project(path: str) -> None:
     """ Create a c project """
     run(f"touch {path}/main.c")
     run(f"touch {path}/Makefile")
-    run(f"touch {path}/.gitignore")
 
 def create_python_project(path: str) -> None:
     """ Create a python project """
-    run(f"touch {path}/main.py")
-    with open(f"{path}/test.py", "w") as f:
+    with open(f"{path}/main.py", "w") as f:
         f.write("import unittest\n")
-        f.write("from main import *\n\n")
+        f.write("class Solution:\n\t pass\n\n")
         f.write("class Test(unittest.TestCase):\n")
         f.write("\t def test(self):\n")
         f.write("\t\t self.assertEqual(True, True)\n\n")
@@ -55,17 +53,13 @@ def create_java_project(path: str) -> None:
 
 def create_cpp_project(path: str) -> None:
     with open(f"{path}/main.cpp", "w") as f:
-        f.write("#include <iostream>\n\n")
-        f.write("using namespace std;\n\n")
-    
-    with open(f"{path}/test.cpp", "w") as f:
-        f.write("#include <catch2/catch.hpp>\n")
-        f.write("#include \"main.cpp\"\n\n")
+        f.write(f"#include <iostream>\n \
+        #include <catch2/catch.hpp>\n\n \
+        using namespace std;\n\n")
 
     with open(f"{path}/Makefile", "w") as f:
-        f.write("all: main.cpp test.cpp\n")
-        f.write("\t g++ -o main main.cpp\n")
-        f.write("\t g++ -o test test.cpp -I /usr/local/include -L /usr/local/lib -lcatch2\n")
+        f.write("all: main.cpp\n")
+        f.write("\t g++ -o test main.cpp -I /usr/local/include -L /usr/local/lib -lcatch2\n")
         f.write("\t ./test\n")
 
 def create_go_project(path: str) -> None:
